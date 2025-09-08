@@ -19,55 +19,71 @@ logger = logging.getLogger(__name__)
 app = Flask(__name__)
 CORS(app)
 
-# Global variables to store documents
+# GDPR Documents with SharePoint URLs
 DOCUMENTS = [
     {
-        'file_name': 'GDPR-Compliance-Manual.pdf',
-        'file_path': 'demo/GDPR-Compliance-Manual.pdf',
+        'file_name': 'IC-GDPR-Compliance-Manual-Final_03_21.pdf',
+        'file_path': 'Files/IC-GDPR-Compliance-Manual-Final_03_21.pdf',
         'page_number': 1,
         'paragraph_index': 0,
-        'text': 'General Data Protection Regulation (GDPR) Compliance Manual. This document provides comprehensive guidance on GDPR compliance requirements, data protection principles, and individual rights under the regulation.',
-        'url': 'https://example.com/gdpr-manual.pdf#page=1'
+        'text': 'GDPR Compliance Manual Final 03_21. This comprehensive document provides detailed guidance on GDPR compliance requirements, data protection principles, individual rights under the regulation, and implementation strategies for organizations.',
+        'url': 'https://4ciusa.sharepoint.com/:b:/s/4ConsultingInc/EeQeUyussbhPuu1rsUudHeoBiCJ0kF6n5QHxfo8D7RAh2A?e=1xN8ld'
     },
     {
-        'file_name': 'Data-Protection-Rights.pdf',
-        'file_path': 'demo/Data-Protection-Rights.pdf',
+        'file_name': 'GDPR-Final-EPSU.pdf',
+        'file_path': 'Files/GDPR-Final-EPSU.pdf',
         'page_number': 1,
         'paragraph_index': 0,
-        'text': 'Rights of Individuals under the General Data Protection Regulation. Data subjects have various rights including the right to access, rectify, erase, restrict processing, data portability, and object to processing of their personal data.',
-        'url': 'https://example.com/data-rights.pdf#page=1'
+        'text': 'GDPR Final EPSU document. European Public Service Union guidance on General Data Protection Regulation implementation, covering data protection principles, employee rights, and organizational compliance measures.',
+        'url': 'https://4ciusa.sharepoint.com/:b:/s/4ConsultingInc/EWmQegZF3d1Orxp6erD-evkB6zWDz85NJid5N3DYJf950w?e=OZgzm2'
     },
     {
-        'file_name': 'GDPR-Principles.pdf',
-        'file_path': 'demo/GDPR-Principles.pdf',
-        'page_number': 2,
-        'paragraph_index': 1,
-        'text': 'Key principles under GDPR include lawfulness, fairness and transparency, purpose limitation, data minimisation, accuracy, storage limitation, integrity and confidentiality, and accountability. Organizations must demonstrate compliance with these principles.',
-        'url': 'https://example.com/gdpr-principles.pdf#page=2'
-    },
-    {
-        'file_name': 'Data-Processing-Agreement.pdf',
-        'file_path': 'demo/Data-Processing-Agreement.pdf',
-        'page_number': 3,
-        'paragraph_index': 0,
-        'text': 'Data Processing Agreement template for GDPR compliance. This agreement establishes the relationship between data controllers and data processors, defining responsibilities, security measures, and breach notification procedures.',
-        'url': 'https://example.com/dpa-template.pdf#page=3'
-    },
-    {
-        'file_name': 'Breach-Notification-Procedures.pdf',
-        'file_path': 'demo/Breach-Notification.pdf',
-        'page_number': 1,
-        'paragraph_index': 2,
-        'text': 'Personal data breach notification requirements under GDPR. Organizations must notify supervisory authorities within 72 hours of becoming aware of a breach, and inform data subjects when the breach poses high risks to their rights and freedoms.',
-        'url': 'https://example.com/breach-notification.pdf#page=1'
-    },
-    {
-        'file_name': 'Individual-Rights-GDPR.pdf',
-        'file_path': 'demo/Individual-Rights.pdf',
+        'file_name': 'LW-Privacy-GDPR-Compliance-Checklist.pdf',
+        'file_path': 'Files/LW-Privacy-GDPR-Compliance-Checklist.pdf',
         'page_number': 1,
         'paragraph_index': 0,
-        'text': 'Individual rights under GDPR include the right of access, right to rectification, right to erasure (right to be forgotten), right to restrict processing, right to data portability, right to object, and rights related to automated decision making and profiling.',
-        'url': 'https://example.com/individual-rights.pdf#page=1'
+        'text': 'Privacy GDPR Compliance Checklist. A comprehensive checklist for organizations to ensure GDPR compliance, covering data protection impact assessments, consent management, data subject rights, and privacy by design principles.',
+        'url': 'https://4ciusa.sharepoint.com/:b:/s/4ConsultingInc/ETtl-ZcFufVIuN6VwRGCLYMB8hYh53gYIGl7ybYCIElLEg?e=KHDM9m'
+    },
+    {
+        'file_name': 'Regulation-of-European-Parliament.pdf',
+        'file_path': 'Files/Regulation of European Parliament.pdf',
+        'page_number': 1,
+        'paragraph_index': 0,
+        'text': 'Regulation of European Parliament on data protection. Official regulation text covering the protection of natural persons with regard to the processing of personal data and on the free movement of such data.',
+        'url': 'https://4ciusa.sharepoint.com/:b:/s/4ConsultingInc/EaeQ3ZsLSaFJnq0PgMp0SDoBGKRxrWL_E4Zh21rW9wVTtw?e=k2gmIr'
+    },
+    {
+        'file_name': 'Rights-of-Individuals-under-the-General-Data-Protection-RegulationAmendedApril.pdf',
+        'file_path': 'Files/Rights-of-Individuals-under-the-General-Data-Protection-RegulationAmendedApril.pdf',
+        'page_number': 1,
+        'paragraph_index': 0,
+        'text': 'Rights of Individuals under the General Data Protection Regulation (Amended April). Detailed guide covering individual rights including access, rectification, erasure, data portability, restriction of processing, and objection to processing.',
+        'url': 'https://4ciusa.sharepoint.com/:b:/s/4ConsultingInc/EQy-AD8NoFFFk6DeUfOi1AMBhdoZvsO0Its6LCtYtasxUA?e=4QgvMx'
+    },
+    {
+        'file_name': 'Data-Processing-Agreement-Template.pdf',
+        'file_path': 'Files/Data-Processing-Agreement-Template.pdf',
+        'page_number': 1,
+        'paragraph_index': 0,
+        'text': 'Data Processing Agreement Template for GDPR compliance. This template establishes the relationship between data controllers and data processors, defining responsibilities, security measures, breach notification procedures, and contractual safeguards.',
+        'url': 'https://4ciusa.sharepoint.com/:b:/s/4ConsultingInc/EeQeUyussbhPuu1rsUudHeoBiCJ0kF6n5QHxfo8D7RAh2A?e=1xN8ld'
+    },
+    {
+        'file_name': 'GDPR-Consent-Requirements.pdf',
+        'file_path': 'Files/GDPR-Consent-Requirements.pdf',
+        'page_number': 1,
+        'paragraph_index': 0,
+        'text': 'GDPR Consent Requirements and best practices. Consent under GDPR must be freely given, specific, informed and unambiguous. Controllers must be able to demonstrate that consent was given, and individuals have the right to withdraw consent at any time.',
+        'url': 'https://4ciusa.sharepoint.com/:b:/s/4ConsultingInc/EeQeUyussbhPuu1rsUudHeoBiCJ0kF6n5QHxfo8D7RAh2A?e=1xN8ld'
+    },
+    {
+        'file_name': 'Data-Protection-Principles.pdf',
+        'file_path': 'Files/Data-Protection-Principles.pdf',
+        'page_number': 1,
+        'paragraph_index': 0,
+        'text': 'Key data protection principles under GDPR including lawfulness, fairness and transparency, purpose limitation, data minimisation, accuracy, storage limitation, integrity and confidentiality, and accountability. Organizations must demonstrate compliance with these principles.',
+        'url': 'https://4ciusa.sharepoint.com/:b:/s/4ConsultingInc/EaeQ3ZsLSaFJnq0PgMp0SDoBGKRxrWL_E4Zh21rW9wVTtw?e=k2gmIr'
     }
 ]
 
