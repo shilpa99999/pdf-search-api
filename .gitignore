@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Local development files (keep production files)
+simple_app.py
+demo_api.py
+test_system.py
+
+# Keep these essential files for deployment
+!render_app.py
+!requirements_render.txt
+!build.sh
+!render.yaml
+!Procfile
+!DEPLOYMENT_GUIDE.md
+!README_DEPLOY.md
+!pdf_search_data.pkl
